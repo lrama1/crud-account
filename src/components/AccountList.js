@@ -25,7 +25,6 @@ const AccountList = (props) => {
 };
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {
         accounts: state.accounts
     };
