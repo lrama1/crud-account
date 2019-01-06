@@ -1,24 +1,14 @@
 import {combineReducers} from 'redux'
 
-const accountsReducer = () => {
-    return [
-        {
-            accountId: '0001',
-            accountType:  'C',
-            accountBalance: 1000
-        },
-        {
-            accountId: '0002',
-            accountType:  'C',
-            accountBalance: 2500
-        },
-        {
-            accountId: '0003',
-            accountType:  'S',
-            accountBalance: 3000
-        }
-    ]
-};
+const accountsReducer = (accounts = [], action) => {
+    if(action.type === 'ACCOUNTS_FETCH_SUCCESS'){
+        console.log('Reducer ', action.accounts);
+        console.log('accts', accounts);
+        return action.accounts;
+    }
+    console.log(accounts);
+    return accounts;
+}
 
 const selectedAccountReducer = (selectedAccount = null, action) => {
     if(action.type === 'ACCOUNT_SELECTED'){
