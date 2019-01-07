@@ -6,6 +6,13 @@ import { selectAccount, fetchAllAccounts } from '../actions';
 const AccountList = (props) => {
     console.log('Rendering AccountList');
 
+    const selectAccount = (account) => {
+        console.log('select button clicked', account)
+        props.history.push({pathname: '/account/' + account.accountId});
+        props.onSelectAccount(account)
+    }
+
+    //props.onSelectAccount(account)
     const rows = props.accounts.map((account) => {
         return (
             <tr key={account.accountId}>
@@ -13,7 +20,7 @@ const AccountList = (props) => {
                 <td>{account.accountType}</td>
                 <td>{account.accountBalance}</td>
                 <td>
-                    <button onClick={() => props.onSelectAccount(account)}>Select</button>
+                    <button onClick={() => selectAccount(account)}>Select</button>
                 </td>
             </tr>
         );

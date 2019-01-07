@@ -13,7 +13,7 @@ const accountsReducer = (accounts = [], action) => {
 const selectedAccountReducer = (selectedAccount = null, action) => {
     if(action.type === 'ACCOUNT_SELECTED'){
         console.log('account was selected', action.payload);
-        return action.payload;
+        return action.payload.account;
     }
 
     return selectedAccount;
