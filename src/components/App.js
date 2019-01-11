@@ -20,7 +20,7 @@ const App  = () => {
 
                 <Route path="/" exact component={Home} />
                 <Route path="/accounts" exact component={AccountList} />
-                <Route path="/account/:id" exact component={AccountEdit} />
+                <Route path="/account" exact component={AccountEdit} />
             </div>
         </div>
     </BrowserRouter>

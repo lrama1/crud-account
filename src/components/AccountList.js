@@ -3,16 +3,16 @@ import {connect} from 'react-redux'
 import { dispatch } from 'react-redux'
 import { selectAccount, fetchAllAccounts } from '../actions';
 
-const AccountList = (props) => {
+function AccountList(props){
     console.log('Rendering AccountList');
 
     const selectAccount = (account) => {
         console.log('select button clicked', account)
-        props.history.push({pathname: '/account/' + account.accountId});
+        //props.history.push({pathname: '/account/' + account.accountId});
+        props.history.push({pathname: '/account'});
         props.onSelectAccount(account)
     }
 
-    //props.onSelectAccount(account)
     const rows = props.accounts.map((account) => {
         return (
             <tr key={account.accountId}>
@@ -28,6 +28,7 @@ const AccountList = (props) => {
 
     return (
         <div>
+            Test
             <table>
                 <tbody>
                 {rows}
@@ -40,7 +41,7 @@ const AccountList = (props) => {
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        accounts: state.accounts
+        accounts: state.accountsReducer
     };
 };
 

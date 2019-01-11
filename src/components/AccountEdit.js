@@ -1,11 +1,21 @@
 import React from 'react'
+import {connect} from 'react-redux'
+import { dispatch } from 'react-redux'
 
-const AccountEdit = (props) => {
+function AccountEdit(props){
     return(
       <div>
           This is the account editor
+          {props.selectedAccount.accountId}
       </div>
     );
 }
 
-export default AccountEdit;
+const mapStateToProps = (state) => {
+    console.log(state);
+    return {
+        selectedAccount: state.selectedAccountReducer
+    };
+};
+
+export default connect(mapStateToProps)(AccountEdit);

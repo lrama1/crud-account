@@ -10,7 +10,7 @@ const accountsReducer = (accounts = [], action) => {
     return accounts;
 }
 
-const selectedAccountReducer = (selectedAccount = null, action) => {
+const selectedAccountReducer = (selectedAccount = {}, action) => {
     if(action.type === 'ACCOUNT_SELECTED'){
         console.log('account was selected', action.payload);
         return action.payload.account;
@@ -20,8 +20,8 @@ const selectedAccountReducer = (selectedAccount = null, action) => {
 };
 
 export default combineReducers({
-    accounts: accountsReducer,
-    selectedAccount: selectedAccountReducer
+    accountsReducer,
+    selectedAccountReducer
 });
 
  
