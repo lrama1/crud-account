@@ -1,15 +1,37 @@
+/*
+Refactor opportunities
+1.  create separate files for each logical group of action creators
+2.  combine the separate action creator files here an export them
+ */
 
-export const selectAccount = (account) => {
+export const accountFetchSuccess = (account) =>{
+    console.log('DISPATCHING SUCCESS', account );
     return {
-        type: 'ACCOUNT_SELECTED',
-        payload: {
-            account,
-            navToRoute: '/account/' + account.accountId
-        }
-
+        type: 'ACCOUNT_FETCH_SUCCESS',
+        account: account
     }
-};
+}
 
+export const accountFetchError = (error) => {
+    return {
+        type: 'ACCOUNT_FETCH_ERROR',
+        error: error
+    }
+}
+
+export const fetchAccount = (url) => {
+    console.log('Fetch of single account Invoked');
+    return dispatch => {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                dispatch(accountFetchSuccess(data))
+            })
+            .catch(() => dispatch(accountFetchError(true)))
+    }
+}
+
+/*---------------------------------------------------------*/
 export const accountsFetchSuccess = (accounts) =>{
     console.log('DISPATCHING SUCCESS', accounts );
     return {

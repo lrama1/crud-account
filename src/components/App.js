@@ -1,6 +1,5 @@
 import React from 'react';
-import {BrowserRouter} from 'react-router-dom';
-import { Route, Link } from 'react-router-dom';
+import {BrowserRouter, Route, Link } from 'react-router-dom';
 
 import AccountList from './AccountList';
 import AccountEdit from './AccountEdit';
@@ -17,7 +16,6 @@ const App  = () => {
                 </ul>
             </div>
             <div>
-
                 <Route path="/" exact component={Home} />
                 <Route path="/accounts" exact component={AccountList} />
                 <Route path="/account" exact component={AccountEdit} />

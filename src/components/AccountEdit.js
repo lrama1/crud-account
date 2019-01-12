@@ -7,6 +7,7 @@ function AccountEdit(props){
       <div>
           This is the account editor
           {props.selectedAccount.accountId}
+          {props.selectedAccount.accountBalance}
       </div>
     );
 }
@@ -14,7 +15,7 @@ function AccountEdit(props){
 const mapStateToProps = (state) => {
     console.log(state);
     return {
-        selectedAccount: state.selectedAccountReducer
+        selectedAccount: state.accountFetchReducer
     };
 };
 

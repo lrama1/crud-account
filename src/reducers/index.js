@@ -10,18 +10,21 @@ const accountsReducer = (accounts = [], action) => {
     return accounts;
 }
 
-const selectedAccountReducer = (selectedAccount = {}, action) => {
-    if(action.type === 'ACCOUNT_SELECTED'){
-        console.log('account was selected', action.payload);
-        return action.payload.account;
+const accountFetchReducer = (account = {}, action) => {
+    if (action.type === 'ACCOUNT_FETCH_SUCCESS'){
+        return action.account;
     }
 
-    return selectedAccount;
-};
+    return account;
+}
 
+/*
+By combining reducers, you now have to use the namespace of the reducer
+when mapping State-to-Props in your components
+ */
 export default combineReducers({
-    accountsReducer,
-    selectedAccountReducer
+    accountFetchReducer,
+    accountsReducer
 });
 
  

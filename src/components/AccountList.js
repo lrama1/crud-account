@@ -1,18 +1,23 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import { dispatch } from 'react-redux'
-import { selectAccount, fetchAllAccounts } from '../actions';
+import { fetchAccount } from '../actions';
 
 function AccountList(props){
     console.log('Rendering AccountList');
 
     const selectAccount = (account) => {
         console.log('select button clicked', account)
-        //props.history.push({pathname: '/account/' + account.accountId});
+        //dispatch an action to fetch the selected account
+        props.fetchAccount('/account/' + account.accountId)
+        //tell route to display the Edit screen
         props.history.push({pathname: '/account'});
-        props.onSelectAccount(account)
     }
 
+    /*
+    Iterate thru rows of accounts and create a tr component for each
+    NOTE: look up examples of the 'map' function on the web if you're unfamiliar with it
+     */
     const rows = props.accounts.map((account) => {
         return (
             <tr key={account.accountId}>
@@ -26,6 +31,9 @@ function AccountList(props){
         );
     });
 
+    /*
+    render a table component
+     */
     return (
         <div>
             Test
@@ -47,9 +55,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return{
-        onSelectAccount: (account) => dispatch(selectAccount(account))
-        /*,
-        fetchAllAccounts: (url) => dispatch(fetchAllAccounts(url))*/
+        onSelectAccount: (account) => dispatch(fetchAccount(account)),
+        fetchAccount: (url) => dispatch(fetchAccount(url))
     }
 }
 
