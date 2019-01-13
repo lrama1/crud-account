@@ -4,7 +4,7 @@ Refactor opportunities
 2.  combine the separate action creator files here an export them
  */
 
-export const accountFetchSuccess = (account) =>{
+export function accountFetchSuccess(account){
     console.log('DISPATCHING SUCCESS', account );
     return {
         type: 'ACCOUNT_FETCH_SUCCESS',
@@ -12,14 +12,14 @@ export const accountFetchSuccess = (account) =>{
     }
 }
 
-export const accountFetchError = (error) => {
+export function accountFetchError(error){
     return {
         type: 'ACCOUNT_FETCH_ERROR',
         error: error
     }
 }
 
-export const fetchAccount = (url) => {
+export function fetchAccount(url){
     console.log('Fetch of single account Invoked');
     return dispatch => {
         fetch(url)
@@ -32,7 +32,7 @@ export const fetchAccount = (url) => {
 }
 
 /*---------------------------------------------------------*/
-export const accountsFetchSuccess = (accounts) =>{
+export function accountsFetchSuccess(accounts){
     console.log('DISPATCHING SUCCESS', accounts );
     return {
         type: 'ACCOUNTS_FETCH_SUCCESS',
@@ -40,14 +40,14 @@ export const accountsFetchSuccess = (accounts) =>{
     }
 }
 
-export const accountsFetchError = (error) => {
+export function accountsFetchError(error){
     return {
         type: 'ACCOUNTS_FETCH_ERROR',
         error: error
     }
 }
 
-export const fetchAllAccounts = (url) => {
+export function fetchAllAccounts(url){
     console.log('Fetch Invoked');
     return dispatch => {
         fetch(url)

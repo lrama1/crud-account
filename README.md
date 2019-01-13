@@ -1,9 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-References:
+## References
 https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3
 https://www.udemy.com/react-redux/learn/v4/overview
 
+## Things to Review if you have not coded in J/S in a while
+
+1.  Export/Import Syntax
+2.  const/let vs. var
+3.  Arrow Functions
+3.  Map function
+4.  Destructuring
+
+
+## Modules used
+1.  redux
+2.  redux-thunk - allows you to code action creators which return a function vs an actual action.  This is
+            used for dispatching async actions.
+3.  react-router- allows you to add routing to your SPA
 
 ## Available Scripts
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import { dispatch } from 'react-redux'
+import {connect, dispatch} from 'react-redux'
+
 import { fetchAccount } from '../actions';
 
 function AccountList(props){

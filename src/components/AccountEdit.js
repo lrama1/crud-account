@@ -5,9 +5,7 @@ import { dispatch } from 'react-redux'
 function AccountEdit(props){
     return(
       <div>
-          This is the account editor
-          {props.selectedAccount.accountId}
-          {props.selectedAccount.accountBalance}
+          <label>Account Id</label> {props.selectedAccount.accountId}
       </div>
     );
 }
