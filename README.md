@@ -1,8 +1,8 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## References
-https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3
-https://www.udemy.com/react-redux/learn/v4/overview
+- https://medium.com/@stowball/a-dummys-guide-to-redux-and-thunk-in-react-d8904a7005d3
+- https://www.udemy.com/react-redux/learn/v4/overview
 
 ## Things to Review if you have not coded in J/S in a while
 

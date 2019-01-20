@@ -2,19 +2,19 @@ import {combineReducers} from 'redux'
 
 const accountsReducer = (accounts = [], action) => {
     if(action.type === 'ACCOUNTS_FETCH_SUCCESS'){
-        console.log('Reducer ', action.accounts);
-        console.log('accts', accounts);
         return action.accounts;
     }
-    console.log(accounts);
-    return accounts;
+     return accounts;
 }
 
 const accountFetchReducer = (account = {}, action) => {
     if (action.type === 'ACCOUNT_FETCH_SUCCESS'){
         return action.account;
+    }else if(action.type ==='ACCOUNT_EDIT'){
+        return action.account;
+    }else if(action.type ==='ACCOUNT_SAVE'){
+        return action.account;
     }
-
     return account;
 }
 

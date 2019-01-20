@@ -4,15 +4,14 @@ import {connect, dispatch} from 'react-redux'
 import { fetchAccount } from '../actions';
 
 function AccountList(props){
-    console.log('Rendering AccountList');
 
-    const selectAccount = (account) => {
-        console.log('select button clicked', account)
+    function selectAccount(account){
         //dispatch an action to fetch the selected account
         props.fetchAccount('/account/' + account.accountId)
         //tell route to display the Edit screen
         props.history.push({pathname: '/account'});
     }
+
 
     /*
     Iterate thru rows of accounts and create a tr component for each
@@ -25,7 +24,7 @@ function AccountList(props){
                 <td>{account.accountType}</td>
                 <td>{account.accountBalance}</td>
                 <td>
-                    <button onClick={() => selectAccount(account)}>Select</button>
+                    <button className="btn btn-primary" onClick={() => selectAccount(account)}>Select</button>
                 </td>
             </tr>
         );
@@ -36,8 +35,12 @@ function AccountList(props){
      */
     return (
         <div>
-            Test
-            <table>
+            <table className="table">
+                <thead>
+                    <tr>
+                        <th>Account Id</th><th>Type</th><th>Balance</th>
+                    </tr>
+                </thead>
                 <tbody>
                 {rows}
                 </tbody>

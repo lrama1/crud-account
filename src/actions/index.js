@@ -31,6 +31,46 @@ export function fetchAccount(url){
     }
 }
 
+export function editAccount(account){
+    console.log('Editing SUCCESS', account );
+    return {
+        type: 'ACCOUNT_EDIT',
+        account: account
+    }
+}
+
+export function saveAccountSuccess(account){
+    return {
+        type: 'ACCOUNT_SAVE_SUCCESS',
+        account: account
+    }
+}
+
+export function saveAccountError(account){
+    return {
+        type: 'ACCOUNT_SAVE_ERROR',
+        account: account
+    }
+}
+
+export function saveAccount(url, account){
+    return dispatch => {
+        fetch(url,{
+          method: 'put',
+          body: JSON.stringify(account),
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          }
+        })
+            .then(response => response.json())
+            .then(data => {
+                dispatch(saveAccountSuccess(data))
+            })
+            .catch(() => dispatch(saveAccountError(true)))
+    }
+}
+
 /*---------------------------------------------------------*/
 export function accountsFetchSuccess(accounts){
     console.log('DISPATCHING SUCCESS', accounts );
